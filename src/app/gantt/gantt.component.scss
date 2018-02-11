@@ -1,0 +1,16 @@
+.gantt {
+  width: 100%;
+
+  &-main {
+    display: flex;
+  }
+
+  &-activity {
+    overflow-x: auto;
+  }
+
+  &-body {
+    overflow-x: auto;
+    background-color: silver;
+  }
+}

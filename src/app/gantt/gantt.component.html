@@ -1,0 +1,13 @@
+<div class="gantt">
+  <div class="gantt-header" *ngIf="true">
+    <app-header [project]="project"></app-header>
+  </div>
+  <div class="gantt-main">
+    <div class="gantt-activity" [ngStyle]="{width: options.activity.width}">
+      <app-activity [project]="project" [options]="options"></app-activity>
+    </div>
+    <div class="gantt-body" [ngStyle]="{width: options.body.width}">
+      <app-body [project]="project"></app-body>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="gantt-activity-wrapper">
+  <div class="gantt-activity-header">
+    <ng-container *ngFor="let item of headerRow">
+      <div class="header-item" [ngStyle]="{width: item.width}">
+        <span>{{item.name}}</span>
+      </div>
+    </ng-container>
+  </div>
+  <div class="gantt-activity-body">
+    <div class="gantt-activity-row" *ngFor="let task of tasks">
+      <ng-container *ngFor="let item of headerRow">
+        <div class="gantt-activity-item" [ngStyle]="{width: item.width}" title="{{task[item.name]}}">
+          <span>{{task[item.name]}}</span>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

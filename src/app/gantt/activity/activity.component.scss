@@ -1,0 +1,48 @@
+.gantt {
+
+  &-activity-header {
+    display: flex;
+
+    .header-item {
+      padding: 3px 6px;
+      border: 1px solid gray;
+      height: 44px;
+      display: flex;
+      align-items: flex-end;
+      box-sizing: border-box;
+    }
+    .header-item + .header-item {
+      border-left: none;
+    }
+  }
+
+  &-activity {
+
+    &-body {
+    }
+
+    &-item {
+      padding: 3px 6px;
+      box-sizing: border-box;
+      height: 22px;
+      white-space: nowrap; /* Отменяем перенос текста */
+      overflow: hidden; /* Обрезаем содержимое */
+      text-overflow: ellipsis; /* Многоточие */
+    }
+
+    &-row {
+      display: flex;
+      border-bottom: 1px solid gray;
+    }
+
+    &-row:nth-child(odd) {
+      background: #dadada;
+    }
+
+    &-row:last-child {
+      border-bottom: none;
+    }
+
+  }
+
+}

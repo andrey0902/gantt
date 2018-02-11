@@ -1,0 +1,51 @@
+.header-month {
+  display: flex;
+
+  &-item {
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    text-overflow: ellipsis; /* Многоточие */
+    height: 22px;
+    line-height: 20px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #99a3ff;
+    border: 1px solid black;
+  }
+
+  &-text {
+    margin: 0;
+    line-height: 20px;
+  }
+
+  &-text:first-letter {
+    text-transform: capitalize;
+  }
+}
+
+.header-days {
+  display: flex;
+
+  &-item {
+    flex-shrink: 0;
+    text-align: center;
+    height: 22px;
+    line-height: 20px;
+    box-sizing: border-box;
+    background-color: #dadada;
+    border: 1px solid black;
+  }
+
+  &-item + &-item {
+   /* border-right: none;*/
+    border-left: none;
+  }
+}
+.row {
+  display: flex;
+}
+
+.row + .row .header-days-item {
+  border-top: none;
+}
