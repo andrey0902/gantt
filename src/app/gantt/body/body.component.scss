@@ -1,3 +1,10 @@
+.gantt {
+
+  &-main-space {
+    position: relative;
+  }
+}
+
 .header-month {
   display: flex;
 
@@ -29,18 +36,28 @@
 
   &-item {
     flex-shrink: 0;
+    flex-grow: 1;
     text-align: center;
     height: 22px;
     line-height: 20px;
     box-sizing: border-box;
     background-color: #dadada;
     border: 1px solid black;
+    font-size: 13px;
+
+    .body-text {
+      color: transparent;
+    }
   }
 
   &-item + &-item {
    /* border-right: none;*/
     border-left: none;
   }
+  &-item.first-line {
+    border-top: none;
+  }
+
 }
 .row {
   display: flex;
@@ -48,4 +65,13 @@
 
 .row + .row .header-days-item {
   border-top: none;
+}
+
+.gantt-bars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(205, 207, 72, 0.43);
 }

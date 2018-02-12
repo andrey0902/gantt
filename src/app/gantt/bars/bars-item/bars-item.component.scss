@@ -1,0 +1,12 @@
+.gantt {
+
+  &-bars-item {
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    background-color: #3187ff;
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: 2px solid #494949;
+  }
+}

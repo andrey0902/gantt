@@ -1,0 +1,12 @@
+<div class="gantt-bars-wrapper">
+  <div class="gantt-bars-row"
+       *ngFor="let task of getTasks()"
+  >
+  <ng-container *ngIf="task?.subTasks">
+    <app-bars-item *ngFor="let subTask of task.subTasks"
+                   [subTask]="subTask"
+    >
+    </app-bars-item>
+  </ng-container>
+  </div>
+</div>

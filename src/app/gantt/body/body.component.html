@@ -1,4 +1,4 @@
-<div class="gantt-body-wrapper">
+<div class="gantt-body-wrapper" (window:resize)="noResize($vent)">
   <div class="header-month">
     <div class="header-month-item" *ngFor="let month of spaceMonth" [ngStyle]="{width: calculateWidthMonth(month) + 'px'}" [title]="prepareDate(month)">
       <p class="header-month-text">
@@ -7,14 +7,27 @@
     </div>
     </div>
   <div class="header-days">
-    <div class="header-days-item" *ngFor="let day of days" [ngStyle]="{width: options.bodyCellWidth}">
+
+    <div class="header-days-item" *ngFor="let day of days;" [ngStyle]="{width: getCellwidth() + 'px' }">
       <span>{{prepareDay(day)}}</span>
     </div>
   </div>
   <div class="gantt-main-space">
-    <div class="row" *ngFor="let row of project.tasks">
-      <div class="header-days-item" *ngFor="let day of days" [ngStyle]="{width: options.bodyCellWidth}">
+    <div class="row"
+         *ngFor="let row of project.tasks;  let first=first"
+    >
+      <!--[ngStyle]="{width: options.bodyCellWidth}"-->
+      <div class="header-days-item"
+           *ngFor="let day of days"
+           #item
+           [ngClass]="{'first-line': first}"
+           [ngStyle]="{width: getCellwidth() + 'px' }"
+      >
       </div>
+    </div>
+    <div class="gantt-bars">
+      <app-bars [tasks]="project.tasks"
+      ></app-bars>
     </div>
   </div>
 </div>

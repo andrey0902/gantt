@@ -6,8 +6,9 @@
     <div class="gantt-activity" [ngStyle]="{width: options.activity.width}">
       <app-activity [project]="project" [options]="options"></app-activity>
     </div>
-    <div class="gantt-body" [ngStyle]="{width: options.body.width}">
-      <app-body [project]="project"></app-body>
+    <div class="gantt-body" #areaBody [ngStyle]="{width: options.body.width}">
+      <app-body [project]="project"
+      ></app-body>
     </div>
   </div>
 </div>

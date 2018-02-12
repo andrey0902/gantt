@@ -4,11 +4,14 @@ import * as moment from 'moment';
 @Injectable()
 export class GanttService {
   public options;
+  public project;
   public spaceDays = [];
   public _diffDays: number;
   public spaceMonth = [];
+  public areaBody;
 
-  constructor() { }
+  constructor() {
+  }
 
   public diffDays() {
     this.options.start = moment(this.options.start.split('-'));
@@ -23,7 +26,7 @@ export class GanttService {
       return;
     }
     this.diffDays();
-    for (let i = 1; i <= this._diffDays + 1; i++) {
+    for (let i = 1; i <= this._diffDays; i++) {
       this.spaceDays.push(moment(this.options.start).add(i, 'd'));
     }
     /*this.setPlaceMonth();*/
@@ -57,8 +60,9 @@ export class GanttService {
         tempArry.push(1);
       }
     }
-    console.log('array', tempArry);
-    return tempArry.length  * parseInt(this.options.bodyCellWidth, 10) ;
+  //  console.log('tempArry.length  * this.options.cellWidth', tempArry.length  * this.options.cellWidth);
+   // console.log('this.options.cellWidth', tempArry.length,  this.options.cellWidth);
+    return tempArry.length  * this.options.cellWidth ;
   }
   public prepareOptionsDate() {
     // if (!this.options.start || !this.options.end) {
@@ -68,5 +72,37 @@ export class GanttService {
     this.options.end = moment(this.options.end);
     console.log('servise', this.options);
   }
+  public getWidthCell() {
+/*.getBoundingClientRect().width*/
+      const widthArea = this.areaBody.nativeElement.getBoundingClientRect().width;
+      const countItem = this.spaceDays.length;
+      console.log(widthArea, countItem);
+      return this.options.cellWidth = widthArea / countItem;
+  }
 
+  public getStartBars(value) {
+/*    const PST = moment(this.project.start.split('-')).valueOf();
+    const S = moment(value.start).valueOf();
+    if (S < PST) {
+      return 0;
+    }
+
+    const projectStart = moment(this.project.start.split('-')).format('YYYY-MM-DD');*/
+  const start = moment(value.start).format('YYYY-MM-DD');
+  const index = this.spaceDays.findIndex((elem) => {
+    if (elem.format('YYYY-MM-DD') === start) {
+        return true;
+      }
+    });
+   return index === -1 || 0
+     ? 0
+      : this.options.cellWidth * index;
+  }
+
+  public getWidthBars(value) {
+    const start = moment(value.start);
+    const end = moment(value.end);
+    const diffDays = Math.abs(start.diff(end, 'days'));
+    return (diffDays + 1) * this.options.cellWidth;
+  }
 }

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { GanttService } from './services/gantt.service';
 
 @Component({
@@ -15,11 +15,14 @@ export class GanttComponent implements OnInit, AfterViewInit {
   @Input() public set project(value) {
     this._project = value;
   }
+  @ViewChild('areaBody') public areaBody;
   constructor(private service: GanttService) { }
 
   ngOnInit() {
     this.service.options = this._options;
+    this.service.project = this._project;
     this.service.createSpaceDays();
+    this.service.areaBody = this.areaBody;
   }
 
   ngAfterViewInit(): void {
