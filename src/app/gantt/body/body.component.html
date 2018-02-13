@@ -2,7 +2,7 @@
   <div class="header-month">
     <div class="header-month-item" *ngFor="let month of spaceMonth" [ngStyle]="{width: calculateWidthMonth(month) + 'px'}" [title]="prepareDate(month)">
       <p class="header-month-text">
-        {{prepareDate(month)}}
+        {{prepareDate(month) | amLocale: locale | amDateFormat: 'MMMM YYYY'}}
       </p>
     </div>
     </div>

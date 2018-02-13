@@ -10,11 +10,12 @@ import { ItemComponent } from './activity/item/item.component';
 import { BodyComponent } from './body/body.component';
 import { BarsComponent } from './bars/bars.component';
 import { BarsItemComponent } from './bars/bars-item/bars-item.component';
-
+import { MomentModule } from 'angular2-moment/moment.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MomentModule
   ],
   exports: [
     GanttComponent,

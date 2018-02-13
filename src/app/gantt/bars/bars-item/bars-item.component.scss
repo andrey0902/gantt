@@ -4,9 +4,31 @@
     position: absolute;
     top: 2px;
     bottom: 2px;
-    background-color: #3187ff;
+    background-color: #12C3F4;
     border-radius: 3px;
     box-sizing: border-box;
-    border: 2px solid #494949;
+  }
+
+  &-bars-perocent {
+    font-size: 13px;
+    color: #dfdfdf;
+    text-align: center;
+    margin: 0;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+  }
+
+  &-bars-completed-width{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #129ed0;
+    z-index: 2;
   }
 }

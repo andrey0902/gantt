@@ -1,6 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-  <app-gantt [options]="options" [project]="project"></app-gantt>
+  <button (click)="setNew()">add task</button>
+  <br/>
+  <button (click)="addSubTask()">add subTask</button>
+  <app-gantt #gantt [options]="options" [project]="project"></app-gantt>
 </div>
 
 

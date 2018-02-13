@@ -1,5 +1,13 @@
 <div class="gantt-bars-item"
-     [ngStyle]="{left: getStart() + 'px', width: getWidth() + 'px'}"
+     [ngStyle]="{left: getStart() + 'px', width: (getWidth() - 1) + 'px'}"
 >
-
+  <p class="gantt-bars-perocent"
+     *ngIf="subTask?.percentComplete">
+      {{subTask.percentComplete + '%'}}
+  </p>
+  <div class="gantt-bars-completed-width"
+       *ngIf="subTask?.percentComplete"
+       [ngStyle]="{width: subTask.percentComplete + '%'}"
+  >
+  </div>
 </div>

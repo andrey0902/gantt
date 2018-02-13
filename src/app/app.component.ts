@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild('gantt') public gantt;
   title = 'app';
 
   public options = {
+    locale: 'ru',
     activity: {
       headerCol: [
         {
@@ -25,9 +27,6 @@ export class AppComponent {
     body: {
       width: '80%'
     },
-    start: '2017-00-01',
-    end: '2017-01-01',
-    cellWidth: 20
   };
 
   public project = {
@@ -47,7 +46,7 @@ export class AppComponent {
           {
             'id': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
             'treePath': 'parent 1',
-            'parentId': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+            'parentId': '1',
             'name': 'parent 1',
             'resource': 'res1',
             'start': '2017-01-01',
@@ -63,7 +62,7 @@ export class AppComponent {
             'resource': 'res1',
             'start': '2017-01-012',
             'end': '2017-01-16',
-            'percentComplete': 100,
+            'percentComplete': 50,
             'status': 'Completed'
           }
         ]
@@ -83,7 +82,7 @@ export class AppComponent {
             'resource': 'res1',
             'start': '2017-01-22',
             'end': '2017-01-23',
-            'percentComplete': 100,
+            'percentComplete': 40,
             'status': 'Completed'
           },
           {
@@ -94,7 +93,7 @@ export class AppComponent {
             'resource': 'res1',
             'start': '2017-01-13',
             'end': '2017-01-14',
-            'percentComplete': 100,
+            'percentComplete': 30,
             'status': 'Completed'
           }
         ]
@@ -114,7 +113,7 @@ export class AppComponent {
             'resource': 'res1',
             'start': '2017-01-01',
             'end': '2017-01-03',
-            'percentComplete': 100,
+            'percentComplete': 10,
             'status': 'Completed'
           },
           {
@@ -125,11 +124,62 @@ export class AppComponent {
             'resource': 'res1',
             'start': '2017-01-05',
             'end': '2017-01-08',
-            'percentComplete': 100,
+            'percentComplete': 23,
             'status': 'Completed'
           }
         ]
       }
     ]
   };
+
+  public setNew() {
+   const task =  {
+          'id': 44,
+          'treePath': 'parent 1',
+          'parentId': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+          'name': 'new task',
+          'resource': 'res1',
+          subTasks: [
+            {
+              'id': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+              'treePath': 'parent 1',
+              'parentId': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+              'name': 'parent 1',
+              'resource': 'res1',
+              'start': '2017-02-08',
+              'end': '2017-02-13',
+              'percentComplete': 28,
+              'status': 'Completed'
+            },
+            {
+              'id': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+              'treePath': 'parent 1',
+              'parentId': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+              'name': 'parent 1',
+              'resource': 'res1',
+              'start': '2017-01-12',
+              'end': '2017-01-16',
+              'percentComplete': 66,
+              'status': 'Completed'
+            }
+          ]
+        };
+    this.gantt.addTask(task);
+  }
+
+  public addSubTask() {
+    const subTask =             {
+      'id': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+      'treePath': 'parent 1',
+      'parentId': 1,
+      'name': 'parent 1',
+      'resource': 'res1',
+      'start': '2017-01-22',
+      'end': '2017-01-25',
+      'percentComplete': 19,
+      'status': 'Completed'
+    };
+
+    this.gantt.addSubTask(subTask);
+  }
 }

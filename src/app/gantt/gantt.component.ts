@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { GanttService } from './services/gantt.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { GanttService } from './services/gantt.service';
   templateUrl: './gantt.component.html',
   styleUrls: ['./gantt.component.scss']
 })
-export class GanttComponent implements OnInit, AfterViewInit {
+export class GanttComponent implements OnInit, OnChanges {
   private _options: any;
   private _project: any;
   @Input() public set options(value) {
@@ -16,17 +16,29 @@ export class GanttComponent implements OnInit, AfterViewInit {
     this._project = value;
   }
   @ViewChild('areaBody') public areaBody;
-  constructor(private service: GanttService) { }
-
-  ngOnInit() {
-    this.service.options = this._options;
-    this.service.project = this._project;
-    this.service.createSpaceDays();
-    this.service.areaBody = this.areaBody;
+  constructor(private service: GanttService) {
   }
 
-  ngAfterViewInit(): void {
-    /*this.service.prepareOptionsDate();*/
+  ngOnInit() {
+    this.initialize();
+  }
+
+  ngOnChanges() {
+  }
+
+  public addTask(value) {
+    this.service.addTask(value);
+  }
+
+  public addSubTask(value) {
+    this.service.addSubTask(value);
+  }
+
+  public initialize() {
+    this.service.options = this._options;
+    this.service.project = this._project;
+    this.service.areaBody = this.areaBody;
+    this.service.createSpaceDays();
   }
 
   public get project() {
