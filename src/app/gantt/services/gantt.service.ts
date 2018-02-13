@@ -54,16 +54,17 @@ export class GanttService {
   public widthMonth(value) {
     const tempArry = [];
     for (let i = 0; i <= this.spaceDays.length - 1; i++) {
-     // console.log('month', value.format('YYYY-MM'));
-     // console.log(this.spaceDays[i].format('YYYY-MM'));
+      // console.log('month', value.format('YYYY-MM'));
+      // console.log(this.spaceDays[i].format('YYYY-MM'));
       if (value.format('YYYY-MM') === this.spaceDays[i].format('YYYY-MM')) {
         tempArry.push(1);
       }
     }
-  //  console.log('tempArry.length  * this.options.cellWidth', tempArry.length  * this.options.cellWidth);
-   // console.log('this.options.cellWidth', tempArry.length,  this.options.cellWidth);
-    return tempArry.length  * this.options.cellWidth ;
+    //  console.log('tempArry.length  * this.options.cellWidth', tempArry.length  * this.options.cellWidth);
+    // console.log('this.options.cellWidth', tempArry.length,  this.options.cellWidth);
+    return tempArry.length * this.options.cellWidth;
   }
+
   public prepareOptionsDate() {
     // if (!this.options.start || !this.options.end) {
     //   return null;
@@ -72,31 +73,26 @@ export class GanttService {
     this.options.end = moment(this.options.end);
     console.log('servise', this.options);
   }
+
   public getWidthCell() {
-/*.getBoundingClientRect().width*/
-      const widthArea = this.areaBody.nativeElement.getBoundingClientRect().width;
-      const countItem = this.spaceDays.length;
-      console.log(widthArea, countItem);
-      return this.options.cellWidth = widthArea / countItem;
+    /*.getBoundingClientRect().width*/
+    const widthArea = this.areaBody.nativeElement.getBoundingClientRect().width;
+    const countItem = this.spaceDays.length;
+    console.log(widthArea, countItem);
+    if (widthArea / countItem < 18) {
+      return this.options.cellWidth = 18;
+    }
+    return this.options.cellWidth = widthArea / countItem;
   }
 
   public getStartBars(value) {
-/*    const PST = moment(this.project.start.split('-')).valueOf();
-    const S = moment(value.start).valueOf();
-    if (S < PST) {
-      return 0;
-    }
-
-    const projectStart = moment(this.project.start.split('-')).format('YYYY-MM-DD');*/
-  const start = moment(value.start).format('YYYY-MM-DD');
-  const index = this.spaceDays.findIndex((elem) => {
-    if (elem.format('YYYY-MM-DD') === start) {
+    const start = moment(value.start).format('YYYY-MM-DD');
+    const index = this.spaceDays.findIndex((elem) => {
+      if (elem.format('YYYY-MM-DD') === start) {
         return true;
       }
     });
-   return index === -1 || 0
-     ? 0
-      : this.options.cellWidth * index;
+    return index === -1 || 0 ? 0 : this.options.cellWidth * index;
   }
 
   public getWidthBars(value) {
