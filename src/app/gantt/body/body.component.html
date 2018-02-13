@@ -18,11 +18,14 @@
     >
       <!--[ngStyle]="{width: options.bodyCellWidth}"-->
       <div class="header-days-item"
+
            *ngFor="let day of days"
-           #item
+           appCellClick
+           [day]="day"
            [ngClass]="{'first-line': first}"
            [ngStyle]="{width: getCellwidth() + 'px' }"
       >
+        1
       </div>
     </div>
     <div class="gantt-bars">

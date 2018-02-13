@@ -14,7 +14,6 @@ export class BodyComponent implements OnInit, AfterViewInit {
   public days: any[];
   public options: any;
   public locale = 'en';
-  @ViewChild('item') public item;
   @Input() public areaBody;
   constructor(private service: GanttService,
               private cdr: ChangeDetectorRef) {
@@ -41,11 +40,11 @@ export class BodyComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-      console.log('this.item', this.item.nativeElement.getBoundingClientRect().width );
+/*      console.log('this.item', this.item.nativeElement.getBoundingClientRect().width );
         this.service.options.cellWidth = this.item.nativeElement.getBoundingClientRect().width;
         this.cdr.detectChanges();
 
-    this.service.options.cellWidth = this.item.nativeElement.getBoundingClientRect().width;
+    this.service.options.cellWidth = this.item.nativeElement.getBoundingClientRect().width;*/
     this.cdr.detectChanges();
   }
 

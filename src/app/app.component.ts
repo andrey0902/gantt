@@ -182,4 +182,11 @@ export class AppComponent {
 
     this.gantt.addSubTask(subTask);
   }
+  public onBarsClick(event) {
+    console.log('event bars', event);
+  }
+
+  public onCellClick(event) {
+    console.log('event onCellClick', event);
+  }
 }

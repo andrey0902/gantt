@@ -11,6 +11,9 @@ import { BodyComponent } from './body/body.component';
 import { BarsComponent } from './bars/bars.component';
 import { BarsItemComponent } from './bars/bars-item/bars-item.component';
 import { MomentModule } from 'angular2-moment/moment.module';
+import { BarsEventService } from './services/bars-event.servise';
+import { GanttCellClickDirective } from './directives/gantt-cell-click.directive';
+import { BodyCellEventService } from './services/body-cell-event.servise';
 
 @NgModule({
   imports: [
@@ -33,10 +36,13 @@ import { MomentModule } from 'angular2-moment/moment.module';
     ItemComponent,
     BodyComponent,
     BarsComponent,
-    BarsItemComponent
+    BarsItemComponent,
+    GanttCellClickDirective
   ],
   providers: [
-    GanttService
+    GanttService,
+    BarsEventService,
+    BodyCellEventService
   ]
 })
 export class GanttModule { }

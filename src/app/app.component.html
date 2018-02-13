@@ -3,7 +3,12 @@
   <button (click)="setNew()">add task</button>
   <br/>
   <button (click)="addSubTask()">add subTask</button>
-  <app-gantt #gantt [options]="options" [project]="project"></app-gantt>
+  <app-gantt (cellEvent)="onCellClick($event)"
+              (barsEvent)="onBarsClick($event)"
+             #gantt
+             [options]="options"
+             [project]="project"
+  ></app-gantt>
 </div>
 
 

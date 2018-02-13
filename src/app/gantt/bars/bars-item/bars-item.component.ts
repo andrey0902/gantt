@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GanttService } from '../../services/gantt.service';
+import { BarsEventService } from '../../services/bars-event.servise';
 
 @Component({
   selector: 'app-bars-item',
@@ -8,7 +9,8 @@ import { GanttService } from '../../services/gantt.service';
 })
 export class BarsItemComponent implements OnInit {
   @Input() public subTask;
-  constructor(private service: GanttService) { }
+  constructor(private service: GanttService,
+              private barsService: BarsEventService) { }
 
   ngOnInit() {
   }
@@ -19,5 +21,9 @@ export class BarsItemComponent implements OnInit {
 
   public getWidth() {
    return this.service.getWidthBars(this.subTask);
+  }
+
+  public onClick() {
+    this.barsService.bars = this.subTask;
   }
 }
