@@ -44,6 +44,7 @@
     background-color: #dadada;
     border: 1px solid black;
     font-size: 13px;
+    z-index: 12;
 
     .body-text {
       color: transparent;
@@ -61,6 +62,7 @@
 }
 .row {
   display: flex;
+
 }
 
 .row + .row .header-days-item {
@@ -74,4 +76,5 @@
   bottom: 0;
   right: 0;
   background: rgba(205, 207, 72, 0.43);
+
 }

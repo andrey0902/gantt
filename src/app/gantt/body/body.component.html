@@ -1,8 +1,8 @@
 <div class="gantt-body-wrapper" (window:resize)="noResize($vent)">
   <div class="header-month">
-    <div class="header-month-item" *ngFor="let month of spaceMonth" [ngStyle]="{width: calculateWidthMonth(month) + 'px'}" [title]="prepareDate(month)">
+    <div class="header-month-item" *ngFor="let month of spaceMonth" [ngStyle]="{width: calculateWidthMonth(month) + 'px'}" title="{{month | amLocale: locale | amDateFormat: 'MMMM YYYY'}}">
       <p class="header-month-text">
-        {{prepareDate(month) | amLocale: locale | amDateFormat: 'MMMM YYYY'}}
+        {{month | amLocale: locale | amDateFormat: 'MMMM YYYY'}}
       </p>
     </div>
     </div>

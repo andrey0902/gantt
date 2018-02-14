@@ -10,8 +10,7 @@ export class GanttCellClickDirective {
   private cellService: BodyCellEventService) {
     console.log('test');
   }
-  @HostListener('click') onClick() {
-    console.log('click', this.day);
+  @HostListener('click', ['$event']) onClick(event) {
     this.cellService.cell = this.day;
   }
 }

@@ -3,7 +3,7 @@
  */
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { Observable } from 'Rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()

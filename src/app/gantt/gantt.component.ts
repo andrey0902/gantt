@@ -3,9 +3,10 @@ import {
   ViewChild
 } from '@angular/core';
 import { GanttService } from './services/gantt.service';
-import { Subscription } from 'Rxjs/Subscription';
+
 import { BarsEventService } from './services/bars-event.servise';
 import { BodyCellEventService } from './services/body-cell-event.servise';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-gantt',
