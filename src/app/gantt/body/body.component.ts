@@ -1,4 +1,7 @@
-import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit,
+  ViewChild
+} from '@angular/core';
 import { GanttService } from '../services/gantt.service';
 import * as moment from 'moment';
 
@@ -6,7 +9,8 @@ import { Moment } from 'moment';
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
-  styleUrls: ['./body.component.scss']
+  styleUrls: ['./body.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BodyComponent implements OnInit, AfterViewInit {
   @Input() public project: any;
@@ -15,6 +19,8 @@ export class BodyComponent implements OnInit, AfterViewInit {
   public options: any;
   public locale = 'en';
   @Input() public areaBody;
+  public isResize = false;
+  public widthCeill: number;
   constructor(private service: GanttService,
               private cdr: ChangeDetectorRef) {
 
@@ -48,8 +54,11 @@ export class BodyComponent implements OnInit, AfterViewInit {
     this.cdr.detectChanges();
   }
 
-  public getCellwidth() {
-    return this.service.getWidthCell();
+  public getCellWidth() {
+    if (this.widthCeill) {
+      return this.widthCeill;
+    }
+    return this.widthCeill = this.service.getWidthCell();
   }
   public prepareDate(value: Moment) {
     return value.format('MMMM-YYYY');
@@ -64,6 +73,8 @@ export class BodyComponent implements OnInit, AfterViewInit {
   }
 
   public noResize(event) {
-    this.cdr.detectChanges();
+    /*console.log('resize');*/
+    this.widthCeill = this.service.getWidthCell();
+    this.cdr.markForCheck();
   }
 }

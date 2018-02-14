@@ -1,13 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-bars',
   templateUrl: './bars.component.html',
-  styleUrls: ['./bars.component.scss']
+  styleUrls: ['./bars.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BarsComponent implements OnInit {
   @Input() public tasks: any;
-  constructor() { }
+  constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
     console.log(this.tasks);
