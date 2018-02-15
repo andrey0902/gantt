@@ -8,6 +8,10 @@
     border-radius: 3px;
     box-sizing: border-box;
     z-index: 18;
+
+    &:hover .gantt-tooltip{
+      display: block;
+    }
   }
 
   &-bars-perocent {
@@ -33,5 +37,30 @@
     border-radius: 3px;
     background-color: #129ed0;
     z-index: 2;
+  }
+
+  &-tooltip {
+    position: absolute;
+    top: -160%;
+    left: 50%;
+    transition: .3s ease;
+    display: none;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    background-color: #313131;
+
+    &-text {
+      padding: 2px 6px;
+      text-align: center;
+      color: #f7f7f7;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    &:before {
+
+    }
   }
 }

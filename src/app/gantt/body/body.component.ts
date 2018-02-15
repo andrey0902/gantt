@@ -23,7 +23,6 @@ export class BodyComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-
   this.initialize();
   }
 
@@ -65,5 +64,16 @@ export class BodyComponent implements OnInit, AfterViewInit {
 
   public noResize(event) {
     this.cdr.detectChanges();
+  }
+
+  public isWeekend(day) {
+    return this.service.isWeekend(day);
+  }
+
+  public isCurrendDay(day) {
+    if (this.options.showCurrentDay) {
+     return this.service.isCurrentDay(day);
+    }
+    return false;
   }
 }

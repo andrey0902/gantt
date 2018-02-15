@@ -29,15 +29,17 @@ export class AppComponent {
     },
     showProgress: true,
     showTooltip: true,
-    typeTooltip: 'status'
+    typeTooltip: 'name',
+    showCurrentDay: true,
   };
 
   public project = {
     id: 5,
-    name: 'New Gannt',
-    startDate: '2018-02-13',
+/*    name: 'New Gannt',
+    startDate: '2018-02-13',*/
     start: '2017-00-01',
-    end: '2017-01-01',
+    end: '2017-02-01',
+    currentDate: '2017-00-10',
     tasks: [
       {
         'id': 1,
@@ -66,7 +68,7 @@ export class AppComponent {
             'start': '2017-01-012',
             'end': '2017-01-16',
             'percentComplete': 50,
-            'status': 'Completed'
+            'status': 'pending'
           }
         ]
       },
@@ -86,7 +88,7 @@ export class AppComponent {
             'start': '2017-01-22',
             'end': '2017-01-23',
             'percentComplete': 40,
-            'status': 'Completed'
+            'status': 'error'
           },
           {
             'id': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
@@ -97,7 +99,7 @@ export class AppComponent {
             'start': '2017-01-13',
             'end': '2017-01-14',
             'percentComplete': 30,
-            'status': 'Completed'
+            'status': 'progress'
           }
         ]
       },

@@ -12,7 +12,12 @@
          *ngFor="let day of days;"
          appCellClick
          [day]="day"
-         [ngStyle]="{width: getCellwidth() + 'px' }">
+         [ngStyle]="{width: getCellwidth() + 'px' }"
+         [ngClass]="{
+         weekend: isWeekend(day),
+         currentDay: isCurrendDay(day)
+         }"
+    >
       <span>{{prepareDay(day)}}</span>
     </div>
   </div>
@@ -20,13 +25,16 @@
     <div class="row"
          *ngFor="let row of project.tasks;  let first=first"
     >
-      <!--[ngStyle]="{width: options.bodyCellWidth}"-->
       <div class="header-days-item"
 
            *ngFor="let day of days"
            appCellClick
            [day]="day"
-           [ngClass]="{'first-line': first}"
+           [ngClass]="{
+           'first-line': first,
+           weekend: isWeekend(day),
+           currentDay: isCurrendDay(day)
+           }"
            [ngStyle]="{width: getCellwidth() + 'px' }"
       >
       </div>

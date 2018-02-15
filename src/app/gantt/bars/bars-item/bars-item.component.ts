@@ -35,4 +35,15 @@ export class BarsItemComponent implements OnInit {
     }
     return '';
   }
+
+  public bgColor(status, progress?) {
+    console.log('status', status);
+    status = status.toLowerCase();
+
+    if (progress) {
+     return this.service.options.color[status][1];
+    } else {
+      return this.service.options.color[status][0];
+    }
+  }
 }

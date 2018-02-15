@@ -21,15 +21,22 @@ export class GanttService {
   }
 
   public setOptions(options) {
-    console.log('options', options);
-    console.log('this.options', this.options);
     for (const optionsKey in options) {
       if (options.hasOwnProperty(optionsKey)) {
-        console.log('optionsKey', optionsKey);
         this.options[optionsKey] = options[optionsKey];
       }
     }
-    console.log('this.options', this.options);
+  }
+
+  public setProject(project) {
+    this.project = project;
+    this.prepareCurrentDay();
+  }
+
+  public prepareCurrentDay() {
+    if (this.project.currentDate) {
+      this.project.currentDate = moment(this.project.currentDate.split('-')).format('YYYY-MM-DD');
+    }
   }
 
   public diffDays() {
@@ -139,6 +146,17 @@ export class GanttService {
 
     if (tempTask && tempTask.subTasks) {
       tempTask.subTasks.push(subTask);
+    }
+  }
+
+  public isWeekend(day) {
+    const numDay = day.days();
+    return (numDay === 5 || numDay === 6);
+  }
+
+  public isCurrentDay(day) {
+    if (this.project.currentDate) {
+      return (day.format('YYYY-MM-DD') === this.project.currentDate) ;
     }
   }
 }
