@@ -27,6 +27,9 @@ export class AppComponent {
     body: {
       width: '80%'
     },
+    showProgress: true,
+    showTooltip: true,
+    typeTooltip: 'status'
   };
 
   public project = {

@@ -9,10 +9,12 @@ import { BarsEventService } from '../../services/bars-event.servise';
 })
 export class BarsItemComponent implements OnInit {
   @Input() public subTask;
+  public options: any;
   constructor(private service: GanttService,
               private barsService: BarsEventService) { }
 
   ngOnInit() {
+    this.options = this.service.options;
   }
 
   public getStart() {
@@ -25,5 +27,12 @@ export class BarsItemComponent implements OnInit {
 
   public onClick() {
     this.barsService.bars = this.subTask;
+  }
+
+  public prepareTooltip() {
+    if (this.options.typeTooltip && this.subTask[this.options.typeTooltip]) {
+      return this.subTask[this.options.typeTooltip];
+    }
+    return '';
   }
 }

@@ -56,7 +56,7 @@ export class GanttComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   public initialize() {
-    this.service.options = this._options;
+    this.service.setOptions(this._options);
     this.service.project = this._project;
     this.service.areaBody = this.areaBody;
     this.service.createSpaceDays();

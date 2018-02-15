@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
+import { OptionsConfig } from './options.config';
 
 @Injectable()
 export class GanttService {
@@ -12,6 +13,23 @@ export class GanttService {
   public cellWidth = 18;
 
   constructor() {
+    this.createOption();
+  }
+
+  public createOption() {
+    this.options = new OptionsConfig();
+  }
+
+  public setOptions(options) {
+    console.log('options', options);
+    console.log('this.options', this.options);
+    for (const optionsKey in options) {
+      if (options.hasOwnProperty(optionsKey)) {
+        console.log('optionsKey', optionsKey);
+        this.options[optionsKey] = options[optionsKey];
+      }
+    }
+    console.log('this.options', this.options);
   }
 
   public diffDays() {
