@@ -15,12 +15,12 @@ export class AppComponent {
       headerCol: [
         {
         name: 'name',
-        width: '50%'
+     /*   width: '50%'*/
         },
-        {
+/*        {
          name: 'id',
          width: '50%'
-        }
+        }*/
       ],
       width: '20%',
     },

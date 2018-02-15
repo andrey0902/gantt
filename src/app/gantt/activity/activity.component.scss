@@ -11,6 +11,8 @@
       align-items: flex-end;
       box-sizing: border-box;
       color: #6b6b6b;
+      width: 100%;
+    /*  flex: 1;*/
       font-size: 12px;
       border-bottom: 1px solid #e0e0e0;
       border-top: 1px solid #e0e0e0;
@@ -36,6 +38,8 @@
       text-overflow: ellipsis; /* Многоточие */
       border-right: none;
       color: #454545;
+      width: 100%;
+/*      flex: 1;*/
       font-size: 13px;
       font-weight: bold;
       border-right: 1px solid #e0e0e0;
