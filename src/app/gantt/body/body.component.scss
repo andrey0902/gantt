@@ -8,6 +8,7 @@
 .header-month {
   display: flex;
 
+
   &-item {
     white-space: nowrap; /* Отменяем перенос текста */
     overflow: hidden; /* Обрезаем содержимое */
@@ -17,8 +18,15 @@
     flex-shrink: 0;
     box-sizing: border-box;
     text-align: center;
-    background-color: #99a3ff;
-    border: 1px solid black;
+    border-top: 1px solid #cecece;
+    border-right: 1px solid #cecece;
+    color: #454545;
+   /* background-color: #99a3ff;
+    border: 1px solid black;*/
+  }
+
+  &-item:last-child {
+    border-right: none;
   }
 
   &-text {
@@ -34,21 +42,28 @@
 .header-days {
   display: flex;
 
+
   &-item {
+    color: #454545;
     flex-shrink: 0;
     flex-grow: 1;
     text-align: center;
     height: 22px;
     line-height: 20px;
     box-sizing: border-box;
-    background-color: #dadada;
-    border: 1px solid black;
+    border-top: 1px solid #cecece;
+    border-bottom: 1px solid #cecece;
+    border-right: 1px solid #cecece;
     font-size: 13px;
     z-index: 12;
 
     .body-text {
       color: transparent;
     }
+  }
+
+  &-item:last-child {
+    border-right: none;
   }
 
   &-item + &-item {
@@ -62,6 +77,8 @@
 }
 .row {
   display: flex;
+ /* border-bottom: 1px solid transparent;*/
+
 
 }
 
@@ -75,6 +92,6 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(205, 207, 72, 0.43);
-
+ /* background: rgba(205, 207, 72, 0.43);
+*/
 }

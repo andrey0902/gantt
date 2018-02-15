@@ -8,7 +8,11 @@
     </div>
   <div class="header-days">
 
-    <div class="header-days-item" *ngFor="let day of days;" [ngStyle]="{width: getCellwidth() + 'px' }">
+    <div class="header-days-item"
+         *ngFor="let day of days;"
+         appCellClick
+         [day]="day"
+         [ngStyle]="{width: getCellwidth() + 'px' }">
       <span>{{prepareDay(day)}}</span>
     </div>
   </div>
@@ -25,7 +29,6 @@
            [ngClass]="{'first-line': first}"
            [ngStyle]="{width: getCellwidth() + 'px' }"
       >
-        1
       </div>
     </div>
     <div class="gantt-bars">

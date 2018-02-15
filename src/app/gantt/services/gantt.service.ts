@@ -19,7 +19,7 @@ export class GanttService {
     this.project.end = moment(this.project.end.split('-'));
     this._diffDays = Math.abs(this.project.start.diff(this.project.end, 'days'));
     this.spaceDays.push(this.project.start);
-    console.log('days', this.spaceDays);
+  //  console.log('days', this.spaceDays);
   }
 
   public createSpaceDays() {
@@ -42,7 +42,7 @@ export class GanttService {
         this.spaceMonth.push(item);
       }
     });
-    console.log('this.apaceMonth', this.spaceMonth);
+   // console.log('this.apaceMonth', this.spaceMonth);
     return this.spaceMonth;
   }
 
@@ -68,14 +68,14 @@ export class GanttService {
     // }
     this.options.start = moment(this.options.start);
     this.options.end = moment(this.options.end);
-    console.log('servise', this.options);
+  //  console.log('servise', this.options);
   }
 
   public getWidthCell() {
     /*.getBoundingClientRect().width*/
     const widthArea = this.areaBody.nativeElement.getBoundingClientRect().width;
     const countItem = this.spaceDays.length;
-    console.log(widthArea, countItem);
+   // console.log(widthArea, countItem);
     if (widthArea / countItem < 18) {
       return this.cellWidth = 18;
     }
@@ -115,7 +115,6 @@ export class GanttService {
   }
 
   public addSubTask(subTask) {
-    console.log('sub task', subTask);
     const tempTask = this.project.tasks.find((task) => {
       return +task.id === +subTask.parentId;
     });
