@@ -5,6 +5,10 @@
      'background-color': bgColor(subTask.status)
      }"
      [ngClass]="{tooltip: options.showTooltip}"
+     appTooltipDirective
+     [position]="'top'"
+     [text]="prepareTooltip()"
+     [show]="options.showTooltip"
 >
   <ng-container *ngIf="options.showProgress">
     <p class="gantt-bars-perocent"
@@ -18,11 +22,11 @@
     >
     </div>
   </ng-container>
-  <div class="gantt-tooltip"
+<!--  <div class="gantt-tooltip"
        *ngIf="options.showTooltip"
   >
     <p class="gantt-tooltip-text">
       {{prepareTooltip()}}
     </p>
-  </div>
+  </div>-->
 </div>

@@ -14,6 +14,7 @@ import { MomentModule } from 'angular2-moment/moment.module';
 import { BarsEventService } from './services/bars-event.servise';
 import { GanttCellClickDirective } from './directives/gantt-cell-click.directive';
 import { BodyCellEventService } from './services/body-cell-event.servise';
+import { TooltipDirective } from './directives/tooltip.directive';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { BodyCellEventService } from './services/body-cell-event.servise';
     BodyComponent,
     BarsComponent,
     BarsItemComponent,
-    GanttCellClickDirective
+    GanttCellClickDirective,
+    TooltipDirective,
   ],
   providers: [
     GanttService,

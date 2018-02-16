@@ -54,8 +54,8 @@ export class AppComponent {
             'parentId': '1',
             'name': 'parent 1',
             'resource': 'res1',
-            'start': '2017-01-01',
-            'end': '2017-01-02',
+            'start': '2017-02-28',
+            'end': '2017-03-02',
             'percentComplete': 100,
             'status': 'Completed'
           },
