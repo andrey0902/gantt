@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { OptionsConfig, Project } from './gantt/services/interface';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ export class AppComponent {
   @ViewChild('gantt') public gantt;
   title = 'app';
 
-  public options = {
+  public options: OptionsConfig = {
     locale: 'ru',
     activity: {
       headerCol: [
@@ -17,10 +18,10 @@ export class AppComponent {
         name: 'name',
      /*   width: '50%'*/
         },
-/*        {
+        {
          name: 'id',
          width: '50%'
-        }*/
+        }
       ],
       width: '20%',
     },
@@ -33,25 +34,25 @@ export class AppComponent {
     showCurrentDay: true,
   };
 
-  public project = {
+  public project: Project = {
     id: 5,
-/*    name: 'New Gannt',
-    startDate: '2018-02-13',*/
+    name: 'New Gannt',
+    startDate: '2018-02-13',
     start: '2017-00-01',
     end: '2017-02-01',
     currentDate: '2017-00-10',
-    tasks: [
+   tasks: [
       {
-        'id': 1,
-        'treePath': 'parent 1',
-        'parentId': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
-        'name': 'parent 1',
-        'resource': 'res1',
+        id: 1,
+        treePath: 'parent 1',
+        parentId: 5,
+        name: 'parent 1',
+        resource: 'res1',
         subTasks: [
           {
-            'id': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+            'id': 55,
             'treePath': 'parent 1',
-            'parentId': '1',
+            'parentId': 1,
             'name': 'parent 1',
             'resource': 'res1',
             'start': '2017-02-28',
@@ -60,9 +61,9 @@ export class AppComponent {
             'status': 'Completed'
           },
           {
-            'id': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+            'id': 2,
             'treePath': 'parent 1',
-            'parentId': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+            'parentId': 1,
             'name': 'parent 1',
             'resource': 'res1',
             'start': '2017-01-012',
@@ -72,17 +73,17 @@ export class AppComponent {
           }
         ]
       },
-      {
+         {
         'id': 2,
         'treePath': 'parent 2 lajsf a;dksjf a;kkjf ;alskdjkf',
-        'parentId': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+        'parentId': 2,
         'name': 'parent 2 lajsf a;dksjf a;kkjf ;alskdjkf',
         'resource': 'res1',
         subTasks: [
           {
-            'id': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+            'id': 12,
             'treePath': 'parent 1',
-            'parentId': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+            'parentId': 2,
             'name': 'parent 1',
             'resource': 'res1',
             'start': '2017-01-22',
@@ -91,9 +92,9 @@ export class AppComponent {
             'status': 'error'
           },
           {
-            'id': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+            'id': 11,
             'treePath': 'parent 1',
-            'parentId': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+            'parentId': 11,
             'name': 'parent 1',
             'resource': 'res1',
             'start': '2017-01-13',
@@ -106,14 +107,14 @@ export class AppComponent {
       {
         'id': 3,
         'treePath': 'parent 1',
-        'parentId': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+        'parentId': 3,
         'name': 'parent 3',
         'resource': 'res1',
         subTasks: [
           {
-            'id': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+            'id': 322,
             'treePath': 'parent 1',
-            'parentId': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+            'parentId': 3,
             'name': 'parent 1',
             'resource': 'res1',
             'start': '2017-01-01',
@@ -122,9 +123,9 @@ export class AppComponent {
             'status': 'Completed'
           },
           {
-            'id': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+            'id': 555,
             'treePath': 'parent 1',
-            'parentId': 'ea2a8d86-1d4b-4807-844d-d5417fcf618d',
+            'parentId': 555,
             'name': 'parent 1',
             'resource': 'res1',
             'start': '2017-01-05',

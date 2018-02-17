@@ -20,7 +20,7 @@ export class GanttService {
     this.options = new OptionsConfig();
   }
 
-  public setOptions(options) {
+  public setOptions(options): void {
     for (const optionsKey in options) {
       if (options.hasOwnProperty(optionsKey)) {
         this.options[optionsKey] = options[optionsKey];
@@ -39,15 +39,14 @@ export class GanttService {
     }
   }
 
-  public diffDays() {
+  public diffDays(): void {
     this.project.start = moment(this.project.start.split('-'));
     this.project.end = moment(this.project.end.split('-'));
     this._diffDays = Math.abs(this.project.start.diff(this.project.end, 'days'));
     this.spaceDays.push(this.project.start);
-  //  console.log('days', this.spaceDays);
   }
 
-  public createSpaceDays() {
+  public createSpaceDays(): void {
     if (this.checkData()) {
       return;
     }
@@ -55,8 +54,6 @@ export class GanttService {
     for (let i = 1; i <= this._diffDays; i++) {
       this.spaceDays.push(moment(this.project.start).add(i, 'd'));
     }
-    /*this.setPlaceMonth();*/
-    // console.log('this.spaceDays', this.spaceDays);
   }
 
   public setPlaceMonth() {
@@ -67,7 +64,7 @@ export class GanttService {
         this.spaceMonth.push(item);
       }
     });
-   // console.log('this.apaceMonth', this.spaceMonth);
+
     return this.spaceMonth;
   }
 
@@ -87,20 +84,9 @@ export class GanttService {
     return tempArry.length * this.cellWidth;
   }
 
-  public prepareOptionsDate() {
-    // if (!this.options.start || !this.options.end) {
-    //   return null;
-    // }
-    this.options.start = moment(this.options.start);
-    this.options.end = moment(this.options.end);
-  //  console.log('servise', this.options);
-  }
-
   public getWidthCell() {
-    /*.getBoundingClientRect().width*/
     const widthArea = this.areaBody.nativeElement.getBoundingClientRect().width;
     const countItem = this.spaceDays.length;
-   // console.log(widthArea, countItem);
     if (widthArea / countItem < 18) {
       return this.cellWidth = 18;
     }
@@ -129,9 +115,14 @@ export class GanttService {
   }
 
   public getWidthBars(value) {
+    const endGantt = this.project.end;
     const start = moment(value.start);
-    const end = moment(value.end);
+    let end = moment(value.end);
+    if (end.valueOf() > endGantt.valueOf()) {
+      end = endGantt;
+    }
     const diffDays = Math.abs(start.diff(end, 'days'));
+
     return (diffDays + 1) * this.cellWidth;
   }
 

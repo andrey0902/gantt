@@ -19,7 +19,6 @@ export class ActivityComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('activity', this.project, this.options);
   }
 
 }

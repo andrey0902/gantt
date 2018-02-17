@@ -37,7 +37,6 @@ export class BarsItemComponent implements OnInit {
   }
 
   public bgColor(status, progress?) {
-    console.log('status', status);
     status = status.toLowerCase();
 
     if (progress) {

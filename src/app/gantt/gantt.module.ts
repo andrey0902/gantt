@@ -6,7 +6,6 @@ import { GanttService } from './services/gantt.service';
 import { GanttComponent } from './gantt.component';
 import { HeaderComponent } from './header/header.component';
 import { ActivityComponent } from './activity/activity.component';
-import { ItemComponent } from './activity/item/item.component';
 import { BodyComponent } from './body/body.component';
 import { BarsComponent } from './bars/bars.component';
 import { BarsItemComponent } from './bars/bars-item/bars-item.component';
@@ -25,7 +24,6 @@ import { TooltipDirective } from './directives/tooltip.directive';
     GanttComponent,
     HeaderComponent,
     ActivityComponent,
-    ItemComponent,
     BodyComponent,
     BarsComponent,
     BarsItemComponent
@@ -34,7 +32,6 @@ import { TooltipDirective } from './directives/tooltip.directive';
     GanttComponent,
     HeaderComponent,
     ActivityComponent,
-    ItemComponent,
     BodyComponent,
     BarsComponent,
     BarsItemComponent,

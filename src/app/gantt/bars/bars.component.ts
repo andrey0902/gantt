@@ -10,7 +10,6 @@ export class BarsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.tasks);
   }
 
   public getTasks() {

@@ -1,5 +1,5 @@
 import {
-  AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output,
+  Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output,
   ViewChild
 } from '@angular/core';
 import { GanttService } from './services/gantt.service';
@@ -7,6 +7,7 @@ import { GanttService } from './services/gantt.service';
 import { BarsEventService } from './services/bars-event.servise';
 import { BodyCellEventService } from './services/body-cell-event.servise';
 import { Subscription } from 'rxjs/Subscription';
+import { OptionsConfig, Project } from './services/interface';
 
 @Component({
   selector: 'app-gantt',
@@ -14,16 +15,20 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./gantt.component.scss']
 })
 export class GanttComponent implements OnInit, OnChanges, OnDestroy {
-  private _options: any;
-  private _project: any;
+  private _options: OptionsConfig;
+  private _project: Project;
   private barsSubscription: Subscription;
   private bodyCellSubscription: Subscription;
   @Output() public barsEvent: EventEmitter<any> = new EventEmitter();
   @Output() public cellEvent: EventEmitter<any> = new EventEmitter();
-  @Input() public set options(value) {
+
+  @Input()
+  public set options(value: OptionsConfig) {
     this._options = value;
   }
-  @Input() public set project(value) {
+
+  @Input()
+  public set project(value: Project) {
     this._project = value;
   }
   @ViewChild('areaBody') public areaBody;
@@ -31,8 +36,7 @@ export class GanttComponent implements OnInit, OnChanges, OnDestroy {
     private service: GanttService,
     private barsService: BarsEventService,
     private cellService: BodyCellEventService
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.initialize();
